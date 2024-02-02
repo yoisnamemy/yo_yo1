@@ -1,0 +1,17 @@
+function ENDURANCE_JET_PROPELLED
+clear all;
+clc;
+c=0.4;
+L=15; %Lift
+D=1; %Drag
+W1=input('ENTER THE VALUE FOR W1='); %weight of the fuel tank with fuel
+Wf=input('ENTER THE VALUE FOR Wf='); %weight of the fuel 
+Wi=W1+Wf;
+E=(1/c)*(L/D)*(log(Wi/W1)) %Endurance
+end
+
+
+OUTPUT
+ENTER THE VALUE FOR W1=60000
+ENTER THE VALUE FOR Wf=20000
+E=10.7881 hr
