@@ -1,0 +1,30 @@
+function POINT_TAKEOFF_RUNWAY
+ clc;
+ clear all;
+ mur=0.02;
+ h=6;
+ b=53.3;
+ W=19815;
+ rho=0.002377;
+ S=318;
+ CLmax=1;
+ CDo=0.02;
+ e=0.81;
+ AR=b/h;
+ T=7300;
+ g=32.2;
+ innerphi=16*h/b;
+ phi=(innerphi^2)/(1+innerphi^2);
+ Vstall=sqrt((2*W)/(rho*S*CLmax));
+ Vl0=1.2*(Vstall);
+ V=0.7*Vl0;
+ L=0.5*rho*(V^2)*S*CLmax;
+ D=0.5*rho*(V^2)*S*(CDo+phi*((CLmax^2)/(3.14*e*AR)));
+ deno=g*rho*S*CLmax*(T-(D+mur*(W-L)));
+ Sl=1.44*(W^2)/deno
+end
+
+
+
+OUTPUT
+Sg=3.0353e+03 feet
