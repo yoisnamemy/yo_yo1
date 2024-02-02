@@ -1,0 +1,21 @@
+function RANGE_JET_PROPELLED
+clear all;
+clc;
+eta=0.8;
+ct=0.4;
+v=100;
+c=(ct/(v*3600));
+L=15; %Lift
+D=1; %Drag
+W1=input('ENTER THE VALUE FOR W1='); %weight of the fuel tank with fuel
+Wf=input('ENTER THE VALUE FOR Wf='); %weight of the fuel 
+Wo=W1+Wf;
+R=(eta/c)*(L/D)*(log(Wo/W1)) %Range
+end
+
+
+
+OUTPUT
+ENTER THE VALUE FOR W1=60000
+ENTER THE VALUE FOR Wf=20000
+E=3.1070e+006 feet
