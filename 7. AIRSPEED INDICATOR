@@ -1,0 +1,33 @@
+clc;
+clear all;
+% Given Parameters
+T = 230; % Ambient pressure at given altitude
+Po = 4.24e4; % Pitot measured Pressure
+P = 2.65e4; % Std pressure at altitude of 1524m
+Ps = 1.01e5;
+gamma = 1.4;
+as = 340.3;
+R = 287;
+rhos = 1.225055;
+% Calculation of Mach Number
+innerM = ((Po/P)^((gamma-1)/gamma)-1);
+M = sqrt((2/(gamma-1)*innerM));
+     if M<=0.3 % Incompressible flow
+         rho = P/(R*T);
+         Vtrue = sqrt(2*(Po-P)/rho)
+         Veq = sqrt(2*(Po-P)/rhos) 
+
+ 
+       else if M>0.3 % compressible flow
+ 
+            % Calculation of Vtrue
+           a1 = sqrt(gamma*R*T);
+           innerVtrue = ((Po/P)^((gamma-1)/gamma)-1);
+           Vtrue = sqrt((2*(a1^2)/(gamma-1))*innerVtrue)
+ 
+           % Calculation of Veq
+           innerVeq = ((((Po-P)/Ps)+1)^((gamma-1)/gamma))-1;
+           Veq = sqrt((2*(as^2)/(gamma-1))*innerVeq)
+           end;
+end;
+ 
