@@ -30,4 +30,22 @@ M = sqrt((2/(gamma-1)*innerM));
            Veq = sqrt((2*(as^2)/(gamma-1))*innerVeq)
            end;
 end;
+
+OUTPUT
+Case1: Incompressible Flow (M<=3)
+Input:
+Po = 87000 N/m2
+P = 84300 N/m2
+T = 280.55 K
+Output:
+Vtrue = 71.81 m/s
+Veq = 66.39 m/s
+Case2: Compressible Flow (M>3)
+Input:
+T = 230 K
+Po = 42400 N/m2
+P = 26500 N/m2
+Output:
+Vtrue = 257 m/s
+Veq = 157 m/s
  
