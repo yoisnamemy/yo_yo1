@@ -1,0 +1,22 @@
+function GLIDE
+clear all;
+clc;
+h2=1000; %height
+h1=0; %height
+W=10000; %weight
+D=1; %drag
+L=15; %lift
+S=41; %wing span
+Cd=0.005; %coefficient of drag
+Cl=0.7; %coefficient of lift
+rho=1.225; %density of air
+gamma=-tan(D/L)*(180/pi) %glide angle
+V=sqrt((2*W)/(rho*S*Cl)) %glide velocity
+R=(L/D)*(h2-h1) %glide range
+end
+
+
+OUTPUT
+ Gamma=-3.8254 degrees
+ V=23.8510 m/s
+ R=15000m
