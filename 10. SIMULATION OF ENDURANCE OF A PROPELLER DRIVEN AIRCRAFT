@@ -1,0 +1,32 @@
+function ENDURANCE_FOR_PROPELLER_DRIVEN_AIRCRAFT
+ clear all;
+ clc; 
+ eta=0.8; %efficieny of aircraft
+ c=2.5E-5 %N/N-s SFC 
+ h=11000; %altitude in m
+ lamda=6.5E-3; %lapse rate k/m
+ to=288; %sea level temperature
+ t=to-(lamda*h); %temperature k
+ R=287; %gas constant
+ g=9.81; %acceleration due to gravity
+ a=(g/(lamda*R))-1; %N/m^2 force
+ rho_o=1.225; %density of air kg/m^3
+ rho=rho_o*(t/to)^a; %density
+ s=75; %wing area
+31
+ cl=0.9; %coefficient of lift
+ cd=0.02; %coefficient of drag
+ %figure('name','endurance vs weight','number title','on')
+ w=17000:100:18000; %gross weight with fuel tanks
+ w2=diag(w);
+ wo=inv(w2);
+ w1=5000;
+ e=(eta/c)*(sqrt(2*(rho*s)))*(((cl)^(3/2)/cd)*((sqrt(1/w1)-sqrt(wo))));
+ e1=diag(e)
+ plot(w,e1)
+ xlabel('WEIGHT(kg)')
+ ylabel('ENDURANCE(s)')
+ title('VARIATION OF ENDURANCE WITH WEIGHT')
+end
+
+
