@@ -1,0 +1,18 @@
+clear all;
+clc; 
+M = 20; 
+D = 10; 
+t = 0.1; % initializing Time step
+v=0; % Initializing velocity
+for i = 1:50 
+dvdt(i) = (1/M)*(M*9.81-(D*v))*t; % calculating dv/dt
+v = dvdt(i); % setting velocity for next iteration
+t = t+0.1; % Incrementing to next time step
+end;
+plot(0.1:0.1:5,dvdt); 
+xlabel ('TIME(s)'); 
+ylabel ('VELOCITY(m/s)');
+title('Velocity Versus Time plot for Falling Sphere with Viscous drag');
+
+OUTPUT 
+Case 1: M = 10kg, D = 10N/m/sec
