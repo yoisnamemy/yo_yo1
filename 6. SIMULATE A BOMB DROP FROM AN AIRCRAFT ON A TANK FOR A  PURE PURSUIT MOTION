@@ -1,0 +1,19 @@
+ clc;
+ clear all;
+ y0=5; % initial height in m
+ v0=10; % initial velocity in m/s
+ theta=0; % trajectory elevation w.r.t horizon in deg
+ g=9.81; % acceleration due to gravity in m/s^2
+ b=v0*sin(pi*(theta/180));
+ a=-g/2;
+ c=y0;
+ t_flight=(-b-sqrt(b^2-4*a*c))/(2*a);
+ t=linspace(0,t_flight,30);
+ xdot0=v0*cos(pi*(theta/180));
+ ydot0=v0*sin(pi*(theta/180));
+ x=xdot0*t+x0;
+ y=-(g/2)*t.^2+ydot0*t+y0;
+ plot(x,y);
+ xlabel('Distance (m)');
+ ylabel('Height (m)');
+ title('Bomb Drop Trajectory for pure pursuit Motion');
